@@ -307,14 +307,14 @@ export class SValidatorDirective implements OnInit, OnDestroy {
                     errInfo = 'Please input IP address and can not be empty, like "1.2.3.4"';
                 }
                 break;
-            case 'idCard': // ID card of china
+            case 'IDCard': // ID card of china
                 reg = /^\d{15}(\d{2}[A-Za-z0-9])?$|^\s*$/;
                 if(!reg.test(val)) {
                     flag = false;
                     errInfo = 'Please input ID card, like "500239201801015050"';
                 }
                 break;
-            case 'idCard+':
+            case 'IDCard+':
                 reg = /^\d{15}(\d{2}[A-Za-z0-9])?$/;
                 if(!reg.test(val)) {
                     flag = false;
