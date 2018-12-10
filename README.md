@@ -3,14 +3,14 @@ Directive of angular,use to validator form.
 Angular表单输入框数据合法性校验指令，支持快捷校验和自定义正则表达式校验
 
 示例：
-<input [sValidator]="w::6~32" [errorMessage]="'自定义的错误提示信息'" />
+<input [sValidator]="w::6~32" [sErrorMessage]="'自定义的错误提示信息'" />
 sValidator: 传给指令的校验规则，格式说明如“* sValidator：校验规则 *”所示
-errorMessage：可选，自定义的错误提示信息，设置后校验失败时显示
-
+sErrorMessage：字符串类型，可选，自定义的错误提示信息，设置后校验失败时显示
+sDelay: 数字类型，可选参数，默认为200，自定义消除抖动的延迟时间，即过了sDelay时间后才触发检查事件
 * sValidator：校验规则 *
   格式1：type::range <——> 快捷校验类型::范围
     -- type: 快捷校验类型
-         type的值有：w,empty,password,tel,mobile,email,digit,digitP,float,floatP,ip,IDCard,url,en,cn,port;
+         type的值有：w,empty,text,password,tel,mobile,email,digit,digitP,float,floatP,ip,IDCard,url,en,cn,port;
          类型后面跟“+”表示不能为空，如：w+(表示只能输入字母、数字、下划线且不能为空)；
     -- range: 可选，表示范围（字符串表示长度范围，数字表示取值范围），范围之间用“~”连接，表示最大值/长度时最大值/长    度后面跟“+”   (加号)，如：              digit::100+（表示最大值为100，包含100）;最小值在数值后面跟“-”（减号），如：digit::-100-（表示最小值为-100）；
   格式2：RegExp 自定义正则表达式作为校验规则，特殊字符需要转义，如\需要写成\\\\
@@ -31,7 +31,8 @@ errorMessage：可选，自定义的错误提示信息，设置后校验失败�
 快捷校验类型释义：
 w => 数字、字母、下划线
 w+ => 数字、字母、下划线,不能为空；如下所有类型跟上“+”都表示不能为空
-
+text => 任意字符，可以为空
+text+ => 任意字符，不能为空
 empty => 不能为空；
 password => 密码，长度6-32位，任意字符组成；
 tel => 座机号码；
