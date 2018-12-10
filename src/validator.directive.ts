@@ -84,8 +84,8 @@ export class SValidatorDirective implements OnInit, OnDestroy {
    * @param rule: string check rule
    */
   check(val: string, rule: string): void {
-    if (undefined === val || null === val) throw TypeError('Parameter of "val" can not be null or undefined');
-    if (undefined === rule || '' === rule || null === rule) throw TypeError('Parameter of "rule" can not be null or undefined and can not be empty'); // not rule paramter,return
+    if (undefined === rule || '' === rule || null === rule) return; // not rule paramter,return
+    if (undefined === val || null === val) throw TypeError('Parameter of "val" can not be null or undefined');    
     let flag = true;
     val = val.trim();
     rule = rule.trim();
