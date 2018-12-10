@@ -427,7 +427,7 @@ export class SValidatorDirective implements OnInit, OnDestroy {
             reg = new RegExp(rule);
             if (!reg.test(val)) {
               flag = false;
-              errInfo = this.errorMessage || 'Varification faild, please check your RegExp, Eg:"^\\w+$" => /^\w+$/';
+              errInfo = this.sErrorMessage || 'Varification faild, please check your RegExp, Eg:"^\\w+$" => /^\w+$/';
             }
           } catch (error) {
             throw new Error(error);
